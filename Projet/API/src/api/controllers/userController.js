@@ -40,6 +40,7 @@ class userController {
         const users = this.userRepository.getByName(req.params.name);
         res.json(users);
     }
+
 }
 
 module.exports = userController;

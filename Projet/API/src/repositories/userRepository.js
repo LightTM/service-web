@@ -63,7 +63,6 @@ class userRepository {
         }
         
     }
-
 }
 
 module.exports = userRepository;

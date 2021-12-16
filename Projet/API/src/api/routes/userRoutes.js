@@ -7,5 +7,5 @@ module.exports = function(app, userController) {
         .get(userController.get.bind(userController))
         .put(userController.update.bind(userController))
         .delete(userController.delete.bind(userController));
-    
+
 }
