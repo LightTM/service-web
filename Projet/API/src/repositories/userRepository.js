@@ -24,6 +24,10 @@ class userRepository {
     }
 
     update(id, user) {
+        if (user.id == undefined) {
+            user.id = id
+        }
+
         if (user.id !== id) {
             throw new ValidationError('You cannot change the identifier.');
         }
