@@ -2,6 +2,7 @@ const { v4: uuid } = require('uuid');
 const _ = require('lodash');
 const ValidationError = require('./validationError');
 
+/**permet de vérifier si un livre possède un nom avant de le créer ou de le mettre à jour*/
 const checkBook = function(book) {
     if (!book.name) {
         throw new ValidationError('The book must have a name.');

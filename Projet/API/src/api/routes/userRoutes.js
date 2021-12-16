@@ -1,5 +1,6 @@
-module.exports = function(app, routeController) {
+module.exports = function(app, userController) {
     app.route('/users')
-        .get((req, res) => { res.status(200).send([ { name : 'Adrien Buet'}]) })
+        .get(userController.getAll.bind(userController))
         .post(() => { throw new Error('Veuillez implémenter cette fonctionnalité !!!!'); });
+    
 }
