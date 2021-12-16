@@ -65,6 +65,17 @@ class BookRepository {
 
         return '/books[' + index + ']';
     }
+
+    /** my implementation */
+    getByName(name) {
+        const books = this.getAll();
+        return books.filter(book => book.name == name);
+    }
+
+    getByAuthor(author){
+        const books = this.getAll();
+        return books.filter(book => book.author == author);
+    }
 }
 
 module.exports = BookRepository;

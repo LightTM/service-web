@@ -31,6 +31,24 @@
             "publicationDate": "1995",
             "id": "90091c00-ddd8-11e7-a75e-7f7cd01ab94e",
             "copies": []
+        },
+        {
+            "name": "myFirstBokk",
+            "author": "Me",
+            "id": "51b187d5-89b1-4cec-b982-00f335399cd6",
+            "copies": []
+        },
+        {
+            "name": "myFirstBokk",
+            "author": "You and Me",
+            "id": "ad5eb144-577e-4cf6-94a0-df22529d01ec",
+            "copies": []
+        },
+        {
+            "name": "mySecondBook",
+            "author": "Me",
+            "id": "b75f7a80-ddf8-4159-bb4c-f60ccd07d78d",
+            "copies": []
         }
     ],
     "users": [

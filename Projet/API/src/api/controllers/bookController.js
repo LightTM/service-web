@@ -32,6 +32,17 @@ class BookController {
         this.bookRepository.delete(req.params.bookId);
         res.status(204).send(null);
     }
+
+    /** my implementation */
+    getByName(req, res) {
+        const books = this.bookRepository.getByName(req.params.name);
+        res.json(books);
+    }
+
+    getByAuthor(req, res) {
+        const books = this.bookRepository.getByAuthor(req.params.author);
+        res.json(books);
+    }
 }
 
 module.exports = BookController;
