@@ -45,15 +45,9 @@
             "copies": []
         },
         {
-            "name": "mySecondBook",
+            "name": "myThirdBook",
             "author": "Me",
-            "id": "b75f7a80-ddf8-4159-bb4c-f60ccd07d78d",
-            "copies": []
-        },
-        {
-            "name": "Micka",
-            "age": "20",
-            "id": "4d43b636-ae20-4550-b3a4-4c118300a447"
+            "id": "b75f7a80-ddf8-4159-bb4c-f60ccd07d78d"
         }
     ],
     "users": [

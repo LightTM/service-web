@@ -33,6 +33,10 @@ class BookRepository {
     }
 
     update(id, book) {
+        if (book.id == undefined) {
+            book.id = id
+        }
+
         if (book.id !== id) {
             throw new ValidationError('You cannot change the identifier.');
         }
@@ -51,6 +55,7 @@ class BookRepository {
     delete(id) {
         const path = this.getIdPath(id);
         if (path != null) {
+            console.log("The book with id " + id + "has been deleted")
             this.db.delete(path);
         }
         
