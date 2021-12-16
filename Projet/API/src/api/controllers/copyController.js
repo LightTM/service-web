@@ -1,4 +1,3 @@
-/** TODO */
 class copyController {
     constructor(copyRepository) {
         this.copyRepository = copyRepository;

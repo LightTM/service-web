@@ -7,4 +7,13 @@ module.exports = function(app, bookController) {
         .get(bookController.get.bind(bookController))
         .put(bookController.update.bind(bookController))
         .delete(bookController.delete.bind(bookController));
+
+
+    app.route('/books/name/:name')
+        .get(bookController.getByName.bind(bookController));
+
+    app.route('/books/author/:author')
+        .get(bookController.getByAuthor.bind(bookController));
+
+    
 }
