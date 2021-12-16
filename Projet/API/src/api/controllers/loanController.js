@@ -1,4 +1,3 @@
-/** TODO */
 class LoanController {
     constructor(loanRepository) {
         this.loanRepository = loanRepository;
@@ -16,10 +15,29 @@ class LoanController {
         res.status(201).send(loan);
     }
 
-    getLoans(req, res){
+    getLoansByUserId(req, res){
         const loans = this.loanRepository.getLoansByUserId(req.params.userId)
         res.json(loans);
     }
+
+
+    /** by loan_Id */
+
+    getLoan(req, res){
+        const loan = this.loanRepository.getLoan(req.params.loanId)
+        res.json(loan);
+    }
+
+    update(req, res){
+        const loan = this.loanRepository.update(req.params.loanId, req.body)
+        res.status(200).send(loan);
+    }
+
+    delete(req, res){
+         this.loanRepository.delete(req.params.loanId);
+        res.status(204).send(null);
+    }
+
 
 }
 

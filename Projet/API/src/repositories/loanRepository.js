@@ -15,7 +15,6 @@ class LoanRepository {
     }
 
     add(loan){
-        // this.checkExistBook(loan)
         this.checkExistUser(loan)
         this.checkExistCopy(loan); 
         this.checkCopy(loan); 
@@ -24,20 +23,6 @@ class LoanRepository {
 
         return loan;
     }
-
-    /*
-    checkBookAvailable(loan){
-        const loans = this.getAll();
-        return _.find(loans, (each_loan)=> { return each_loan.copyId == loan.copyId} );
-    } 
-    */
-
-    // checkExistBook(loan){
-    //     const books = this.bookRepository.getAll();
-    //     if (_.some(books, { bookId: loan.bookId }) == false) { 
-    //         throw new ValidationError('The user is unknowed.');
-    //     }
-    // }
 
     checkExistUser(loan){
         const users = this.userRepository.getAll();
@@ -74,13 +59,55 @@ class LoanRepository {
         return loans.filter(loan => loan.userId == id_user)
     }
 
+
+    getLoan(loanId){
+        const loans = this.getAll();
+        return _.find(loans, {id: loanId})
+    }
+
+    update(loanId, loan){
+        if (loan.id == undefined) {
+            loan.id = loanId
+        }
+
+        if (loan.id !== loanId) {
+            throw new ValidationError('You cannot change the identifier.');
+        }
+
+        checkBook(loan); 
+        const path = this.getIdPath(loanId);
+        if (path == null) {
+            throw new ValidationError('This loan does not exists');
+        }
+
+        this.db.push(path, loan);
+
+        return loan;
+    }
+    delete(id){
+        const path = this.getIdPath(id);
+        if (path != null) {
+            console.log("The loan with id " + id + "has been deleted")
+            this.db.delete(path);
+        }
+    }
+
+    getIdPath(id) {
+        const books = this.getAll();
+        const index = _.findIndex(books, { id });
+        if (index == -1) {
+            return null;
+        }
+
+        return '/loans[' + index + ']';
+    }
+
 }
 
 /** loan structure
  * 
  *      {
  *          id
- *          bookId
  *          copyId
  *          userId
  *          loanDate

@@ -10,8 +10,10 @@ module.exports = function(app, bookController) {
 
 
     app.route('/books/name/:name')
-        .get(bookController.getByName.bind(bookController))
+        .get(bookController.getByName.bind(bookController));
 
     app.route('/books/author/:author')
-        .get(bookController.getByAuthor.bind(bookController))
+        .get(bookController.getByAuthor.bind(bookController));
+
+    
 }
