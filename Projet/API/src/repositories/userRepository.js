@@ -47,8 +47,19 @@ class userRepository {
             return null;
         }
 
-        return '/books[' + index + ']';
+        return '/users[' + index + ']';
     }
+
+
+    delete(id) {
+        const path = this.getIdPath(id);
+        if (path != null) {
+            console.log("The user with id " + id + "has been deleted")
+            this.db.delete(path);
+        }
+        
+    }
+
 }
 
 module.exports = userRepository;

@@ -31,7 +31,7 @@ class userController {
     }
     
     delete(req, res) {
-        this.userRepository.delete(req.params.bookId);
+        this.userRepository.delete(req.params.userId);
         res.status(204).send(null);
     }
 
