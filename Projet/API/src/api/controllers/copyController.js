@@ -6,8 +6,8 @@ class copyController {
 
 
     getAll(req, res) {
-        const users = this.copyRepository.getAll(req.bookId);
-        res.json(users);
+        const copies = this.copyRepository.getAll(req.params.bookId);
+        res.json(copies);
     }
 
 }

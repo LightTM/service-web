@@ -1,3 +1,5 @@
+const ValidationError = require('./validationError');
+
 class CopyRepository {
     constructor(db, bookRepository) {
         this.db = db;
@@ -5,6 +7,7 @@ class CopyRepository {
     }
 
     getAll(bookId) {
+        console.log(bookId)
         const bookPath = this.bookRepository.getIdPath(bookId);
         if (bookPath == null) {
             throw new ValidationError('This book does not exists')
