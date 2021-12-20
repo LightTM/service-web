@@ -9,6 +9,6 @@ import { BaseHttpService } from './baseHttpService';
 export class UserService extends BaseHttpService {
   public getAll(): Observable<User[]> {
     /*To be implemented*/
-    return of([new User('myId', 'Fake user', 42), new User('myId', 'Fake user 2', 666)]);
-  }
+    return this.http
+    .get<User[]>(`${this.baseUrl}/Users`);  }
 }
